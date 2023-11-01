@@ -2,7 +2,6 @@
 import csv
 import os
 
-#file_name = "Air_Traffic_Passenger_Statistics.csv"
 file_name = os.path.join(os.getcwd(), "Air_Traffic_Passenger_Statistics.csv")
 
 with open(file_name, "r") as f:
@@ -19,5 +18,5 @@ for i in header_list:
         l.append('"{}" {} '.format(i, text_var))
 l.insert(0, '"id" INT PRIMARY KEY')
 res = ",".join(l)
-print("CREATE TABLE my_table ({});".format(res))
+print("CREATE TABLE air_traffic ({});".format(res))
 

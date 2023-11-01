@@ -11,10 +11,10 @@ def space():
 
 system_ip = os.environ.get('GET_CONTAINER_IP')
 cluster = Cluster([system_ip])
-session = cluster.connect('proyecto')
+session = cluster.connect('final_project')
 
 # Execute the query
-rows = session.execute('SELECT "Published Airline", "Published Airline IATA Code", "Terminal", "Boarding Area", "Passenger Count", "Month", "Year", "GEO Region", "Price Category Code", "Activity Type Code" FROM my_table WHERE "Published Airline" = \'Air Berlin\' AND "Boarding Area" = \'G\' ALLOW FILTERING;')
+rows = session.execute('SELECT "Published Airline", "Published Airline IATA Code", "Terminal", "Boarding Area", "Passenger Count", "Month", "Year", "GEO Region", "Price Category Code", "Activity Type Code" FROM air_traffic WHERE "Published Airline" = \'Air Berlin\' AND "Boarding Area" = \'G\' ALLOW FILTERING;')
 
 # Convert rows to a list of lists
 data = [list(row) for row in rows]
@@ -31,5 +31,3 @@ print('##############################  Recuperar todos los vuelos de la compa√±√
 space()
 
 print(output)
-
-
