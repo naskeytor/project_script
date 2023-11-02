@@ -27,6 +27,5 @@ with open(input_file, 'r') as csv_input, open(output_file, 'w', newline='') as c
 
         id_counter += 1  # Increment the ID counter for the next row
 
-print("ID column added successfully!")
 
 
