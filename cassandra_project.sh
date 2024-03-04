@@ -23,7 +23,6 @@ docker run -d --name cassandra-container -p 9042:9042 cassandra > /dev/null
 # Set variables
 export GET_CONTAINER_ID=$(docker ps | grep cassandra-container | awk '{print $1}')
 export GET_CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'  ${GET_CONTAINER_ID})
-export KEYSPACE_NAME="final_project"
 
 chmod +x get_csv_headers.py set_csv_id.py
 python3 set_csv_id.py
@@ -48,7 +47,7 @@ cassandra_drivers(){
         	sudo apt install -y pip
 	fi
 
-	if [ ! pip show cassabndra-driver >/dev/null 2>&1 ] && [ ! pip show tabulate >/dev/null 2>&1 ] && [ ! pip show docker >/dev/null 2>&1 ]; then
+	if [ ! pip show cassandra-driver >/dev/null 2>&1 ] && [ ! pip show tabulate >/dev/null 2>&1 ] && [ ! pip show docker >/dev/null 2>&1 ]; then
 		pip install cassandra-driver tabulate docker
 	fi
 }
